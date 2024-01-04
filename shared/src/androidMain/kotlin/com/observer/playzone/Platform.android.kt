@@ -1,7 +1,6 @@
 package com.observer.playzone
 
-class AndroidPlatform : Platform {
-    override val name: String = "Android ${android.os.Build.VERSION.SDK_INT}"
+actual class Platform actual constructor() {
+    actual val platform: String = "Android ${android.os.Build.VERSION.RELEASE}"
 }
 
-actual fun getPlatform(): Platform = AndroidPlatform()

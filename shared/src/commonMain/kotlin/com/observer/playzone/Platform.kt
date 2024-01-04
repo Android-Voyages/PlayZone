@@ -1,7 +1,5 @@
 package com.observer.playzone
 
-interface Platform {
-    val name: String
+expect class Platform(){
+    val platform: String
 }
-
-expect fun getPlatform(): Platform
