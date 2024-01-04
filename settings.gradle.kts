@@ -32,3 +32,6 @@ include(":common:games:presentation")
 include(":common:games:data")
 //core
 include(":common:core")
+//Umbrella
+include(":common:umbrella-ios")
+include(":common:umbrella-compose")
