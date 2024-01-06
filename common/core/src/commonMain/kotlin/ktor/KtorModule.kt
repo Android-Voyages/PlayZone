@@ -4,6 +4,7 @@ import HttpEngineFactory
 import io.ktor.client.*
 import io.ktor.client.plugins.logging.LogLevel
 import io.ktor.client.plugins.HttpTimeout
+import io.ktor.client.plugins.defaultRequest
 import io.ktor.client.plugins.json.*
 import io.ktor.client.plugins.kotlinx.serializer.KotlinxSerializer
 import io.ktor.client.plugins.logging.Logger
@@ -15,7 +16,7 @@ import org.kodein.di.instance
 import org.kodein.di.singleton
 
 internal val ktorModule = DI.Module("ktorModule") {
-    bind<HttpClient> with singleton {
+    bind<HttpClient>() with singleton {
         HttpClient(HttpEngineFactory().createEngine()) {
             install(Logging) {
                 logger = Logger.SIMPLE
@@ -27,6 +28,9 @@ internal val ktorModule = DI.Module("ktorModule") {
             install(HttpTimeout) {
                 connectTimeoutMillis = 15000
                 requestTimeoutMillis = 30000
+            }
+            defaultRequest {
+                url("http://127.0.0.1:8081/")
             }
         }
     }
