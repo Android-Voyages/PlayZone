@@ -1,11 +1,15 @@
 import models.Game
+import sqldelight.SqlDelightGamesDataSource
 
-class GamesRepositoryImpl: GamesRepository {
+class GamesRepositoryImpl(
+    private val remoteDataSource: KtorGamesDataSource,
+    private val localDataSource: SqlDelightGamesDataSource
+): GamesRepository {
     override suspend fun fetchAllGames(): List<Game> {
-        TODO("Not yet implemented")
+        return remoteDataSource.fetchAllGames()
     }
 
     override suspend fun searchGame(query: String): Game {
-        TODO("Not yet implemented")
+        return remoteDataSource.searchGame(query)
     }
 }
