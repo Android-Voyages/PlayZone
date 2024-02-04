@@ -1,26 +1,29 @@
-import org.gradle.kotlin.dsl.kotlin
-
-plugins{
+plugins {
     id("com.android.library")
     kotlin("multiplatform")
     id("org.jetbrains.compose")
 }
-kotlin{
+
+kotlin {
     jvm()
     androidTarget {
         compilations.all {
             kotlinOptions {
-                jvmTarget = "1.8"
+                jvmTarget = "17"
             }
         }
     }
     sourceSets{
         commonMain.dependencies {
-            implementation(compose.runtime)
             implementation(compose.foundation)
             implementation(compose.material)
         }
         androidMain.dependencies {
+            implementation(Dependencies.Android.Compose.ui)
+            implementation(Dependencies.Android.Compose.material)
+            implementation(Dependencies.Android.Compose.tooling)
+            implementation(Dependencies.Android.Compose.icons)
+            implementation(Dependencies.Android.composeActivity)
 
         }
         jvmMain.dependencies {
@@ -32,6 +35,6 @@ android {
     namespace = "com.observer.playzone"
     compileSdk = 34
     defaultConfig {
-        minSdk = 23
+        minSdk = 26
     }
 }

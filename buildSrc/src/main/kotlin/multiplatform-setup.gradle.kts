@@ -9,7 +9,7 @@ kotlin {
     androidTarget {
         compilations.all {
             kotlinOptions {
-                jvmTarget = "1.8"
+                jvmTarget = "17"
             }
         }
     }
@@ -21,6 +21,6 @@ android {
     namespace = "com.observer.playzone"
     compileSdk = 34
     defaultConfig {
-        minSdk = 23
+        minSdk = 26
     }
 }
