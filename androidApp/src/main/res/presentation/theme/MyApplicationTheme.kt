@@ -1,4 +1,4 @@
-package com.observer.playzone.android
+package com.observer.playzone.android.presentation.theme
 
 import androidx.compose.foundation.isSystemInDarkTheme
 import androidx.compose.foundation.shape.RoundedCornerShape
