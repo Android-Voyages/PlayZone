@@ -1,4 +1,4 @@
-object Dependencies {
+object DependenciesVersion {
 
     object Kodein {
         const val core = "org.kodein.di:kodein-di:7.21.2"
@@ -34,6 +34,7 @@ object Dependencies {
 
     object Compose {
         private const val version = "1.5.12"
+         const val composeCompilier = "1.5.8"
         const val gradlePlugin = "org.jetbrains.compose:compose-gradle-plugin:$version"
     }
 

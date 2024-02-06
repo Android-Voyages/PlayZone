@@ -5,7 +5,7 @@ buildscript {
         mavenCentral()
     }
     dependencies {
-        classpath(Dependencies.Kotlin.gradlePlugin)
+        classpath(DependenciesVersion.Kotlin.gradlePlugin)
     }
 }
 

@@ -7,7 +7,7 @@ kotlin {
         androidMain {
             dependencies {
 
-                implementation(Dependencies.Android.Compose.ui)
+                implementation(DependenciesVersion.Android.Compose.ui)
             }
         }
     }

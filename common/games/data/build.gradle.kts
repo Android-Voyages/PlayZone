@@ -10,7 +10,7 @@ kotlin {
             dependencies {
                 api(project(":common:games:api"))
                 implementation(project(":common:core"))
-                implementation(Dependencies.Android.Compose.ui)
+                implementation(DependenciesVersion.Android.Compose.ui)
 
             }
         }

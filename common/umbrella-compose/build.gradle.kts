@@ -14,18 +14,18 @@ kotlin {
                 implementation(project(":common:games:data"))
                 implementation(project(":common:tournaments:data"))
 
-                implementation(Dependencies.Other.ViewModel.core)
-                implementation(Dependencies.Other.ViewModel.compose)
-                implementation(Dependencies.Other.ViewModel.odyssey)
+                implementation(DependenciesVersion.Other.ViewModel.core)
+                implementation(DependenciesVersion.Other.ViewModel.compose)
+                implementation(DependenciesVersion.Other.ViewModel.odyssey)
 
-                implementation(Dependencies.Other.Navigation.compose)
-                implementation(Dependencies.Other.Navigation.core)
+                implementation(DependenciesVersion.Other.Navigation.compose)
+                implementation(DependenciesVersion.Other.Navigation.core)
             }
         }
 
         androidMain {
             dependencies {
-                implementation(Dependencies.Android.composeActivity)
+                implementation(DependenciesVersion.Android.composeActivity)
             }
         }
     }

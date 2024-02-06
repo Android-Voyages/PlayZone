@@ -8,44 +8,44 @@ kotlin {
     sourceSets {
         commonMain {
             dependencies {
-                api(Dependencies.Kotlin.Serialization.serialization)
-                api(Dependencies.Kotlin.Coroutines.core)
+                api(DependenciesVersion.Kotlin.Serialization.serialization)
+                api(DependenciesVersion.Kotlin.Coroutines.core)
 
-                api(Dependencies.Ktor.core)
-                implementation(Dependencies.Ktor.json)
-                implementation(Dependencies.Ktor.serialization)
-                implementation(Dependencies.Ktor.negotiation)
-                implementation(Dependencies.Ktor.kotlin_json)
-                implementation(Dependencies.Ktor.logging)
+                api(DependenciesVersion.Ktor.core)
+                implementation(DependenciesVersion.Ktor.json)
+                implementation(DependenciesVersion.Ktor.serialization)
+                implementation(DependenciesVersion.Ktor.negotiation)
+                implementation(DependenciesVersion.Ktor.kotlin_json)
+                implementation(DependenciesVersion.Ktor.logging)
 
-                implementation(Dependencies.Settings.core)
-                implementation(Dependencies.Settings.noargs)
+                implementation(DependenciesVersion.Settings.core)
+                implementation(DependenciesVersion.Settings.noargs)
 
-                api(Dependencies.Kodein.core)
+                api(DependenciesVersion.Kodein.core)
 
-                api(Dependencies.SqlDelight.core)
+                api(DependenciesVersion.SqlDelight.core)
             }
         }
 
         androidMain {
             dependencies {
-                implementation(Dependencies.Ktor.android)
-                implementation(Dependencies.SqlDelight.android)
-                implementation(Dependencies.Android.Compose.ui)
+                implementation(DependenciesVersion.Ktor.android)
+                implementation(DependenciesVersion.SqlDelight.android)
+                implementation(DependenciesVersion.Android.Compose.ui)
             }
         }
 
         iosMain {
             dependencies {
-                implementation(Dependencies.Ktor.ios)
-                implementation(Dependencies.SqlDelight.ios)
+                implementation(DependenciesVersion.Ktor.ios)
+                implementation(DependenciesVersion.SqlDelight.ios)
             }
         }
 
         desktopMain {
             dependencies {
-                implementation(Dependencies.Ktor.okhttp)
-                implementation(Dependencies.SqlDelight.desktop)
+                implementation(DependenciesVersion.Ktor.okhttp)
+                implementation(DependenciesVersion.SqlDelight.desktop)
             }
         }
     }

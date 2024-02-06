@@ -19,11 +19,11 @@ kotlin {
             implementation(compose.material)
         }
         androidMain.dependencies {
-            implementation(Dependencies.Android.Compose.ui)
-            implementation(Dependencies.Android.Compose.material)
-            implementation(Dependencies.Android.Compose.tooling)
-            implementation(Dependencies.Android.Compose.icons)
-            implementation(Dependencies.Android.composeActivity)
+            implementation(DependenciesVersion.Android.Compose.ui)
+            implementation(DependenciesVersion.Android.Compose.material)
+            implementation(DependenciesVersion.Android.Compose.tooling)
+            implementation(DependenciesVersion.Android.Compose.icons)
+            implementation(DependenciesVersion.Android.composeActivity)
 
         }
         jvmMain.dependencies {

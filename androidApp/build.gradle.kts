@@ -20,7 +20,7 @@ android {
     }
 
     composeOptions {
-        kotlinCompilerExtensionVersion = "1.5.8"
+        kotlinCompilerExtensionVersion =  DependenciesVersion.Compose.composeCompilier
     }
 
     buildTypes {
@@ -40,7 +40,7 @@ dependencies {
     implementation(project(":common:umbrella-compose"))
     implementation("com.google.android.material:material:1.11.0")
     implementation("androidx.appcompat:appcompat:1.6.1")
-    implementation(Dependencies.Android.Compose.ui)
-    implementation(Dependencies.Android.Compose.material)
-    implementation(Dependencies.Android.material3)
+    implementation(DependenciesVersion.Android.Compose.ui)
+    implementation(DependenciesVersion.Android.Compose.material)
+    implementation(DependenciesVersion.Android.material3)
 }
