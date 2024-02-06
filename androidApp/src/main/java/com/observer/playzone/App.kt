@@ -1,6 +1,5 @@
 package com.observer.playzone
 
-import PlatformConfiguration
 import android.app.Application
 import com.observer.playzone.di.PlatformSdk
 

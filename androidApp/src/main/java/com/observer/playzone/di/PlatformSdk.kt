@@ -10,6 +10,7 @@ object PlatformSdk {
 
         Inject.createDependencies(
             DI {
+
                 importAll(
                     coreModule,
                     gamesModule,

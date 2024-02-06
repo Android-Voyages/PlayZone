@@ -74,6 +74,12 @@ object DependenciesVersion {
             const val tooling = "androidx.compose.ui:ui-tooling:$version"
             const val icons = "androidx.compose.material:material-icons-core:$version"
         }
+
+        object AndroidSdk{
+            const val core = "androidx.core:core-ktx:1.12.0"
+            const val lifecycle = "androidx.lifecycle:lifecycle-runtime-ktx:2.6.2"
+            const val fragment = "androidx.fragment:fragment-ktx:1.6.2"
+        }
     }
 
     object Other {
