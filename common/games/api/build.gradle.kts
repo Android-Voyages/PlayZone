@@ -4,6 +4,11 @@ plugins{
 }
 kotlin {
     sourceSets {
+        commonMain {
+            dependencies {
+                implementation(project(":common:core"))
+            }
+        }
         androidMain {
             dependencies {
 

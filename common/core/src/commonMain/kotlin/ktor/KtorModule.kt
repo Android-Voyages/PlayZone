@@ -2,14 +2,13 @@ package ktor
 
 import HttpEngineFactory
 import io.ktor.client.*
-import io.ktor.client.plugins.logging.LogLevel
-import io.ktor.client.plugins.HttpTimeout
-import io.ktor.client.plugins.defaultRequest
-import io.ktor.client.plugins.json.*
-import io.ktor.client.plugins.kotlinx.serializer.KotlinxSerializer
-import io.ktor.client.plugins.logging.Logger
-import io.ktor.client.plugins.logging.Logging
-import io.ktor.client.plugins.logging.SIMPLE
+import io.ktor.client.plugins.*
+import io.ktor.client.plugins.contentnegotiation.*
+import io.ktor.client.plugins.kotlinx.serializer.*
+import io.ktor.client.plugins.logging.*
+import io.ktor.client.request.*
+import io.ktor.serialization.kotlinx.json.*
+import kotlinx.serialization.json.Json
 import org.kodein.di.DI
 import org.kodein.di.bind
 import org.kodein.di.instance
@@ -22,15 +21,27 @@ internal val ktorModule = DI.Module("ktorModule") {
                 logger = Logger.SIMPLE
                 level = LogLevel.ALL
             }
-            install(JsonPlugin) {
-                serializer = KotlinxSerializer(json = instance())
+
+            install(DefaultRequest)
+
+
+            install(ContentNegotiation) {
+                json(Json {
+                    isLenient = true
+                    ignoreUnknownKeys = true
+                    prettyPrint = true
+                })
             }
+
             install(HttpTimeout) {
                 connectTimeoutMillis = 15000
                 requestTimeoutMillis = 30000
             }
+
             defaultRequest {
-                url("http://127.0.0.1:8081/")
+                url("http://192.168.1.103:8081")
+                header("Content-Type", "application/json")
+                header("Connection", "keep-alive")
             }
         }
     }
