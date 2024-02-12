@@ -8,4 +8,5 @@ val umbrellaModule = DI.Module(
     init = {
         bind<PlatformConfiguration>() with singleton { instance() }
     }
+
 )

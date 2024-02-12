@@ -12,20 +12,14 @@ import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
 import kotlinx.coroutines.withContext
+import navigation.setupThemedNavigation
 
 
 class MainActivity() : ComponentActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        val gamesrepository = instance<GamesRepository>()
-        CoroutineScope(Dispatchers.IO).launch {
-           val game =  gamesrepository.searchGame("")
-
-            withContext(Dispatchers.Main){
-               Log.d("фпыфпппфпыфпыфпыфпыыпф",game.toString())
-            }
-        }
+        setupThemedNavigation()
     }
 }
 

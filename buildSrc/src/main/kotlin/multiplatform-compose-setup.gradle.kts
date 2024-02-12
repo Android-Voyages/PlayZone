@@ -16,7 +16,7 @@ kotlin {
     sourceSets{
         commonMain.dependencies {
             implementation(compose.foundation)
-            implementation(compose.material)
+            implementation(DependenciesVersion.Android.Compose.material)
         }
         androidMain.dependencies {
             implementation(DependenciesVersion.Android.Compose.ui)

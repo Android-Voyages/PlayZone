@@ -67,7 +67,7 @@ object DependenciesVersion {
         const val material3 = "androidx.compose.material3:material3:1.1.2"
 
         object Compose {
-            private const val version = "1.5.1"
+            private const val version = "1.6.0"
             const val runtime = "androidx.compose.runtime:runtime:$version"
             const val ui = "androidx.compose.ui:ui:$version"
             const val material = "androidx.compose.material:material:$version"
@@ -84,14 +84,14 @@ object DependenciesVersion {
 
     object Other {
         object ViewModel {
-            private const val version = "0.14"
+            private const val version =  "0.14"
             const val core = "com.adeo:kviewmodel:$version"
             const val compose = "com.adeo:kviewmodel-compose:$version"
             const val odyssey = "com.adeo:kviewmodel-odyssey:$version"
         }
 
         object Navigation {
-            private const val version = "1.3.20"
+            private const val version = "1.3.40"
             const val core = "io.github.alexgladkov:odyssey-core:$version"
             const val compose = "io.github.alexgladkov:odyssey-compose:$version"
         }
