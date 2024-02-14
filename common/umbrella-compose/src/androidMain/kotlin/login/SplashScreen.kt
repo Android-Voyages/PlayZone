@@ -1,4 +1,4 @@
-package splash
+package login
 
 import androidx.compose.runtime.Composable
 import navigation.NavigationTree

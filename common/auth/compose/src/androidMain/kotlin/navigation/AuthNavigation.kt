@@ -1,7 +1,7 @@
 package navigation
 
-import LoginScreen
 import forgot.ForgotScreen
+import login.LoginScreen
 import register.RegisterScreen
 import ru.alexgladkov.odyssey.compose.extensions.flow
 import ru.alexgladkov.odyssey.compose.extensions.screen

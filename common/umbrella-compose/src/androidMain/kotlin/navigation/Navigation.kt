@@ -2,7 +2,7 @@ package navigation
 
 import ru.alexgladkov.odyssey.compose.extensions.screen
 import ru.alexgladkov.odyssey.compose.navigation.RootComposeBuilder
-import splash.SplashScreen
+import login.SplashScreen
 
 
 fun RootComposeBuilder.generateGraph() {
