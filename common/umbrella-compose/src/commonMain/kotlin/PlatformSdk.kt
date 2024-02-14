@@ -1,5 +1,3 @@
-package com.observer.playzone.di
-
 import coreModule
 import org.kodein.di.DI
 import org.kodein.di.direct
@@ -15,7 +13,7 @@ object PlatformSdk {
                     coreModule,
                     gamesModule,
                     umbrellaModule,
-                    androidModule
+                    authModule
                 )
             }.direct
         )
