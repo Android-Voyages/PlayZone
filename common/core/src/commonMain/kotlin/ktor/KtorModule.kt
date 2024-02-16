@@ -39,7 +39,7 @@ internal val ktorModule = DI.Module("ktorModule") {
             }
 
             defaultRequest {
-                url("http://192.168.1.103:8081")
+                url("http://192.168.194.57:8081")
                 header("Content-Type", "application/json")
                 header("Connection", "keep-alive")
             }
