@@ -1,5 +1,6 @@
 package login
 
+import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Spacer
 import androidx.compose.foundation.layout.fillMaxWidth
@@ -8,14 +9,21 @@ import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material.Button
 import androidx.compose.material.ButtonDefaults
+import androidx.compose.material.Icon
 import androidx.compose.material.Text
 import androidx.compose.material.TextField
 import androidx.compose.material.TextFieldDefaults
+import androidx.compose.material.icons.Icons
+import androidx.compose.material.icons.outlined.Clear
+import androidx.compose.material.icons.outlined.Lock
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
+import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.text.font.FontWeight
+import androidx.compose.ui.text.input.PasswordVisualTransformation
+import androidx.compose.ui.text.input.VisualTransformation
 import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
@@ -63,6 +71,9 @@ internal fun LoginScreen() {
                     unfocusedIndicatorColor = Color.Transparent
 
                 ),
+                placeholder = {
+                    Text("Your login", color = Theme.colors.hintTextColor)
+                },
                 shape = RoundedCornerShape(10.dp),
                 enabled = !state.value.isSending,
                 onValueChange = {
@@ -82,6 +93,20 @@ internal fun LoginScreen() {
                     focusedIndicatorColor = Color.Transparent,
                     unfocusedIndicatorColor = Color.Transparent
                 ),
+                visualTransformation = if (state.value.passwordHidden) PasswordVisualTransformation() else VisualTransformation.None,
+                trailingIcon = {
+                    Icon(
+                        modifier = Modifier.clickable {
+                            viewModel.obtainEvent(LoginEvent.PasswordShowClicked)
+                        },
+                        imageVector = if(state.value.passwordHidden) Icons.Outlined.Clear else Icons.Outlined.Lock,
+                        contentDescription = "Password hidden",
+                        tint = Theme.colors.hintTextColor
+                    )
+                },
+                placeholder = {
+                    Text(" Your password", color = Theme.colors.hintTextColor)
+                },
                 shape = RoundedCornerShape(10.dp),
                 enabled = !state.value.isSending,
                 onValueChange = {
