@@ -16,7 +16,7 @@ struct CommonTextField: View {
         self.onValueChanged = onValueChanged
     }
     var body: some View {
-        ZStack(alignment: .center){
+        ZStack(alignment: .leading){
             RoundedRectangle(cornerRadius: 10)
                 .foregroundColor(Color.backgroundSecondary)
 

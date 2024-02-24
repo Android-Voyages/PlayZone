@@ -3,9 +3,12 @@
 import SwiftUI
 import SharedSDK
 
+
+
 struct LoginView: View{
 
-   private let loginViewModel = LoginViewModel
+   let viewState: LoginViewState
+   let eventHandler: (LoginEvent) -> Void
 
    var body: some View{
         VStack{
@@ -25,22 +28,22 @@ struct LoginView: View{
 
                 Spacer().frame(height: 50)
 
-                CommonTextField(hint: "Login",enabled: true,isSecure: false){newValue in
-                    loginViewModel.obtainEvent(viewEvent: .EmailChanged(value: newValue))
+                CommonTextField(hint: "Login",enabled: !viewState.isSending){newValue in
+                    eventHandler(.EmailChanged(value: newValue)
                 }
 
                 Spacer().frame(height: 24)
 
-                CommonTextField(hint: "Password",enabled: true,isSecure: true){newValue in
-                    loginViewModel.obtainEvent(viewEvent: .PasswordChanged(value: newValue))
+                CommonTextField(hint: "Password",enabled: !viewState.isSending,isSecure: !viewState.passwordHidden){newValue in
+                    eventHandler(.PasswordChanged(value: newValue)
                 }
 
                 LoginActionView(
                     onForgotClicked: {
-                        loginViewModel.obtainEvent(viewEvent: .ForgotPasswordClicked)
+                        eventHandler(.ForgotPasswordClicked)
                     },
                     onSubmitClicked: {
-                        loginViewModel.obtainEvent(viewEvent: .LoginClicked)
+                        eventHandler(.LoginClicked)
                     }
                 )
             }
@@ -56,7 +59,7 @@ struct LoginView: View{
                         .foregroundColor(.tintColor)
                         .font(.bold)
                         .onTypeGesture{
-                            loginViewModel.obtainEvent(viewEvent: .RegisterClicked)
+                           eventHandler(.CreateAccountClicked)
                         }
 
               }
@@ -65,7 +68,7 @@ struct LoginView: View{
 }
 
 struct LoginActionView:View{
-
+     let viewState: LoginViewState
      let onForgotClicked: () -> Void
      let onSubmitClicked: () -> Void
      var body: some View{
@@ -79,11 +82,14 @@ struct LoginActionView:View{
                         onForgotClicked()
                     }
                 Spacer().frame(width: 30)
-                ActionButton(title: "Login now", enabled: true){
-                    onSubmitClicked()
-                }
+
             }
             Spacer().frame(height: 30)
+            ActionButton(title: "Login now", enabled: !viewState.isSending){
+                                onSubmitClicked()
+            }
+            .frame(height: 56)
+            Spacer()
         }
      }
 
@@ -91,7 +97,8 @@ struct LoginActionView:View{
 
 struct LoginView_Previews: PreviewProvider {
    static var previews: some View {
-       LoginView()
+       LoginView(viewState: LoginViewState(email: "asfa@mail.ru",password: "12e12",isSending: false,passwordHidden: true), eventHandler: {_ in})
             .background(Color.backgroundPrimary)
+            .background(ignoreSafeAreaEdges(.top, .bottom))
    }
 }

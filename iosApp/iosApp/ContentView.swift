@@ -3,8 +3,9 @@ import shared
 
 struct ContentView: View {
 	var body: some View{
-        LoginView()
+        LoginScreen()
            .background(Color.backgroundPrimary)
+           .background(ignoreSafeAreaEdges:[.top,.bottom,.leading,.trailing])
 	}
 }
 

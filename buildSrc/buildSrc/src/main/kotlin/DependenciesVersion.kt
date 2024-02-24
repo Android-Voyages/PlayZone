@@ -62,7 +62,7 @@ object DependenciesVersion {
     }
 
     object Android {
-        const val gradlePlugin = "com.android.tools.build:gradle:8.1.2"
+        const val gradlePlugin = "com.android.tools.build:gradle:8.2.2"
         const val composeActivity = "androidx.activity:activity-compose:1.3.1"
         const val material3 = "androidx.compose.material3:material3:1.1.2"
 
