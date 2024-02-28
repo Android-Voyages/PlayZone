@@ -17,6 +17,17 @@ class LoginViewModel : BaseSharedViewModel<LoginViewState, LoginAction, LoginEve
 ) {
 
     private val authRepository: AuthRepository = Inject.instance()
+
+    init {
+        checkUserLoggedIn()
+    }
+
+    private fun checkUserLoggedIn() {
+        if(authRepository.isUserLoggedIn()){
+            viewAction = LoginAction.OpenMainFlow
+        }
+    }
+
     override fun obtainEvent(viewEvent: LoginEvent) {
         when (viewEvent) {
             is LoginEvent.LoginClicked -> sendLogin()

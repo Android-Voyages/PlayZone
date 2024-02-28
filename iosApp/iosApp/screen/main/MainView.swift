@@ -21,13 +21,13 @@ struct MainView: View{
 
             EventsScreen()
                 .tabItem {
-                    Label("Events", systemImage: "calendar")
+                    Label("Events", systemImage: "person.fill")
                 }
 
 
             VideoScreen()
                 .tabItem {
-                    Label("Videos", systemImage: "play.rectangle")
+                    Label("Videos", systemImage: "person.fill")
                 }
        }
 

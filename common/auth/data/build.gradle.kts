@@ -9,6 +9,7 @@ kotlin{
         commonMain.dependencies {
             implementation(project(":common:auth:api"))
             implementation(project(":common:core"))
+            implementation(DependenciesVersion.Settings.core)
         }
         androidMain.dependencies {
             implementation(DependenciesVersion.Android.Compose.ui)

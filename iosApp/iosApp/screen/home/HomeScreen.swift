@@ -1,11 +1,21 @@
 
 import SwiftUI
+import SharedSDK
 
 
 struct HomeScreen: View{
-
+    private val viewModel = HomeViewModel()
     var body : some View{
-        Text("Registration Screen")
+       ObservingView(statePublisher: viewModel.statePublisher) { state in
+            VStack{
+                Text("Hello, World!")
+                Button(action: {
+                    viewModel.onButtonClicked()
+                }){
+                    Text("Click me")
+                }
+            }
+        }
     }
 }
 

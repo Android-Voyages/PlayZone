@@ -29,6 +29,12 @@ include(":common:tournaments:presentation")
 include(":common:tournaments:data")
 include(":common:tournaments:compose")
 
+//Main
+include(":common:main:api")
+include(":common:main:presentation")
+include(":common:main:data")
+include(":common:main:compose")
+
 //games
 include(":common:games:api")
 include(":common:games:presentation")
