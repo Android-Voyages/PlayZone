@@ -2,15 +2,15 @@
 import SwiftUI
 
 
-struct RegistrationScreen: View{
+struct SearchScreen: View{
 
     var body : some View{
         Text("Registration Screen")
     }
 }
 
-struct RegistrationScreen_Previews: PreviewProvider {
+struct SearchScreen_Previews: PreviewProvider {
     static var previews: some View {
-        RegistrationScreen()
+        SearchScreen()
     }
 }
