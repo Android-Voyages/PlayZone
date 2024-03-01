@@ -17,7 +17,6 @@ dependencyResolutionManagement {
 rootProject.name = "PlayZone"
 //base
 include(":androidApp")
-include(":shared")
 //auth
 include(":common:auth:api")
 include(":common:auth:presentation")
