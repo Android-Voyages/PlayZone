@@ -25,6 +25,7 @@ struct HomeView: View{
 
                     VStack(alignment: .leading){
                         Text(viewState.status).font(.system(size: 12).foregroundColor(.textPrimary.opacity(0.5)).fontWeight(.bold)
+                        Spacer().frame(height: 4)
                         Text(viewState.username).font(.subheading).foregroundColor(.textSecondary)
                     }
                     Spacer()
