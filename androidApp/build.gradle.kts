@@ -47,4 +47,6 @@ dependencies {
     implementation(DependenciesVersion.Android.Compose.ui)
     implementation(DependenciesVersion.Android.Compose.material)
     implementation(DependenciesVersion.Android.material3)
+    implementation(DependenciesVersion.Other.Navigation.core)
+    implementation(DependenciesVersion.Other.Navigation.compose)
 }

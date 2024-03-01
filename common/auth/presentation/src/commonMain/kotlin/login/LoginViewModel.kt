@@ -1,7 +1,6 @@
 package login
 
 import AuthRepository
-import GamesRepository
 import Inject
 import com.adeo.kviewmodel.BaseSharedViewModel
 import kotlinx.coroutines.launch
@@ -28,6 +27,7 @@ class LoginViewModel : BaseSharedViewModel<LoginViewState, LoginAction, LoginEve
         }
     }
 
+
     override fun obtainEvent(viewEvent: LoginEvent) {
         when (viewEvent) {
             is LoginEvent.LoginClicked -> sendLogin()
@@ -44,8 +44,13 @@ class LoginViewModel : BaseSharedViewModel<LoginViewState, LoginAction, LoginEve
         }
     }
 
+    fun clearAction(){
+        viewAction = null
+    }
+
     private fun changePasswordVisibility() {
         viewState = viewState.copy(passwordHidden = !viewState.passwordHidden)
+
     }
 
     private fun obtainPasswordChanged(value: String) {
@@ -68,7 +73,7 @@ class LoginViewModel : BaseSharedViewModel<LoginViewState, LoginAction, LoginEve
                     viewState = viewState.copy(isSending = false)
                 }
             } catch (e: Exception) {
-                viewState.copy(isSending = false)
+                viewState = viewState.copy(isSending = false)
             }
         }
     }

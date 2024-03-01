@@ -11,7 +11,7 @@ object DependenciesVersion {
 
     object Image {
         object Coil {
-            const val version = "2.5.0"
+            private const val version = "2.5.0"
             const val core = "io.coil-kt:coil:$version"
             const val compose = "io.coil-kt:coil-compose:$version"
         }
@@ -91,7 +91,7 @@ object DependenciesVersion {
         }
 
         object Navigation {
-            private const val version = "1.3.40"
+            private const val version = "1.3.50"
             const val core = "io.github.alexgladkov:odyssey-core:$version"
             const val compose = "io.github.alexgladkov:odyssey-compose:$version"
         }
