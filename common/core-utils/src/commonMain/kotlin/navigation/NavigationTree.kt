@@ -13,4 +13,8 @@ object NavigationTree {
     enum class Main{
         Dashboard,Home,Search,Event,Videos,Profile,Game
     }
+
+    enum class DesktopAdmin{
+        Dashboard,Games,Events,CreateGame
+    }
 }

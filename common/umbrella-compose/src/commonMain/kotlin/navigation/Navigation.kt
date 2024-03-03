@@ -1,6 +1,7 @@
 package navigation
 
 import SplashScreen
+import adminFlow
 import androidx.compose.material.Text
 import mainFlow
 import ru.alexgladkov.odyssey.compose.extensions.screen
