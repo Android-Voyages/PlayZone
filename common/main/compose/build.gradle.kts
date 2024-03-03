@@ -5,6 +5,7 @@ plugins{
 
 
 kotlin{
+
     sourceSets{
 
         commonMain.dependencies{
@@ -19,12 +20,12 @@ kotlin{
         }
         androidMain.dependencies{
             implementation(DependenciesVersion.Android.Compose.ui)
-            implementation(DependenciesVersion.Image.Coil.compose)
-            implementation(DependenciesVersion.Image.Coil.core)
             implementation(DependenciesVersion.Android.Compose.ui)
             implementation(DependenciesVersion.Android.Compose.material)
             implementation(DependenciesVersion.Android.Compose.icons)
             implementation(DependenciesVersion.Android.Compose.tooling)
+	        implementation(DependenciesVersion.Image.Coil.compose)
+	        implementation(DependenciesVersion.Image.Coil.core)
         }
     }
 }

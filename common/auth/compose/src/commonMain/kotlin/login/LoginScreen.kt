@@ -3,7 +3,6 @@ package login
 import LoginView
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.LaunchedEffect
-import androidx.compose.runtime.getValue
 import com.adeo.kviewmodel.compose.observeAsState
 import com.adeo.kviewmodel.odyssey.StoredViewModel
 import login.models.LoginAction
@@ -25,7 +24,7 @@ internal fun LoginScreen() {
         }
 
 
-        var currentAction = viewAction.value
+	    val currentAction = viewAction.value
 
         LaunchedEffect(viewAction.value) {
             when (currentAction) {

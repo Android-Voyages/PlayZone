@@ -10,7 +10,6 @@ kotlin {
             dependencies {
                 api(DependenciesVersion.Kotlin.Serialization.serialization)
                 api(DependenciesVersion.Kotlin.Coroutines.core)
-
                 api(DependenciesVersion.Ktor.core)
                 implementation(DependenciesVersion.Ktor.json)
                 implementation(DependenciesVersion.Ktor.serialization)

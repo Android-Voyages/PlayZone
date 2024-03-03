@@ -4,7 +4,6 @@ import ru.alexgladkov.odyssey.compose.extensions.bottomNavigation
 import ru.alexgladkov.odyssey.compose.extensions.screen
 import ru.alexgladkov.odyssey.compose.extensions.tab
 import ru.alexgladkov.odyssey.compose.navigation.RootComposeBuilder
-import ru.alexgladkov.odyssey.compose.navigation.bottom_bar_navigation.BottomNavConfiguration
 import videos.VideoScreen
 
 

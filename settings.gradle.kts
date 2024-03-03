@@ -15,13 +15,18 @@ dependencyResolutionManagement {
 }
 
 rootProject.name = "PlayZone"
-//base
+//android
 include(":androidApp")
+
+//desktop
+include(":desktop")
+
 //auth
 include(":common:auth:api")
 include(":common:auth:presentation")
 include(":common:auth:data")
 include(":common:auth:compose")
+
 //tournaments
 include(":common:tournaments:api")
 include(":common:tournaments:presentation")
@@ -44,6 +49,7 @@ include(":common:games:compose")
 include(":common:core")
 include(":common:core-compose")
 include(":common:core-utils")
+
 //Umbrella
 include(":common:umbrella-ios")
 include(":common:umbrella-compose")

@@ -1,5 +1,3 @@
-package login
-
 import androidx.compose.runtime.Composable
 import navigation.NavigationTree
 import ru.alexgladkov.odyssey.compose.extensions.present
