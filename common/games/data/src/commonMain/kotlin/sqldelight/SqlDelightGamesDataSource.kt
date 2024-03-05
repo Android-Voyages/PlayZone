@@ -1,4 +1,4 @@
 package sqldelight
 
-class SqlDelightGamesDataSource() {
+class SqlDelightGamesDataSource {
 }

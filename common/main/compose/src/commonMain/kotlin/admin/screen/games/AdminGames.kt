@@ -9,7 +9,9 @@ import androidx.compose.material.Text
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.filled.Add
 import androidx.compose.runtime.Composable
+import androidx.compose.runtime.LaunchedEffect
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
@@ -28,41 +30,44 @@ fun AdminGames(){
 	StoredViewModel({AdminGamesViewModel()}){viewModel->
 		val viewState = viewModel.viewStates().value
 		val viewAction = viewModel.viewActions().observeAsState().value
-		Row(modifier = Modifier.padding(16.dp)) {
-			Text(
-				text = "Games List",
-				fontSize = 28.sp,
-				color = Theme.colors.secondaryTextColor,
-			)
-			Spacer(modifier = Modifier.weight(1f))
 
-			Icon(
-				imageVector = Icons.Filled.Add,
-				contentDescription = "Add Game",
-				tint = Theme.colors.primaryAction,
-				modifier = Modifier
-					.clickable {
-						viewModel.obtainEvent(AdminGamesEvent.AddGameClicked)
-					}
-			)
-		}
+		Column {
+			Row(modifier = Modifier.padding(16.dp)) {
+				Text(
+					text = "Games List",
+					fontSize = 28.sp,
+					color = Theme.colors.secondaryTextColor,
+				)
+				Spacer(modifier = Modifier.weight(1f))
 
-		LazyColumn {
-			viewState.games.forEach {
-				item {
-					Column {
-						Text(
-							modifier = Modifier
-								.padding(
-									start = 16.dp,
-									end = 16.dp,
-									top = 8.dp,
-									bottom = 8.dp
-								),
-							text = it.title,
-							color = Theme.colors.secondaryTextColor,
-							fontWeight = FontWeight.Medium
-						)
+				Icon(
+					imageVector = Icons.Filled.Add,
+					contentDescription = "Add Game",
+					tint = Theme.colors.primaryAction,
+					modifier = Modifier
+						.clickable {
+							viewModel.obtainEvent(AdminGamesEvent.AddGameClicked)
+						}
+				)
+			}
+
+			LazyColumn {
+				viewState.games.forEach {
+					item {
+						Column {
+							Text(
+								modifier = Modifier
+									.padding(
+										start = 16.dp,
+										end = 16.dp,
+										top = 8.dp,
+										bottom = 8.dp
+									),
+								text = it.title,
+								color = Theme.colors.secondaryTextColor,
+								fontWeight = FontWeight.Medium
+							)
+						}
 					}
 				}
 			}
@@ -75,6 +80,10 @@ fun AdminGames(){
 			}
 
 			else -> {}
+		}
+
+		LaunchedEffect(Unit){
+			viewModel.obtainEvent(AdminGamesEvent.ViewInited)
 		}
 	}
 }

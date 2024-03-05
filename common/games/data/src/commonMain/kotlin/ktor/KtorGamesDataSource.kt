@@ -6,9 +6,9 @@ import io.ktor.http.*
 import ktor.models.KtorSearchGame
 
 class KtorGamesDataSource(private val httpClient: HttpClient) {
-    suspend fun fetchAllGames(): List<KtorSearchGame> {
+    suspend fun fetchAllGames(token: String): List<KtorSearchGame> {
         return httpClient.post {
-            header("Bearer-Authorization", "69baaf99-d224-4d29-b8d2-898b77f56d96")
+            header("Bearer-Authorization", token)
 
             url {
                 path("games/search")
@@ -17,9 +17,9 @@ class KtorGamesDataSource(private val httpClient: HttpClient) {
         }.body()
     }
 
-    suspend fun searchGame(query: String): List<KtorSearchGame> {
+    suspend fun searchGame(token: String,query: String): List<KtorSearchGame> {
         return httpClient.post {
-            header("Bearer-Authorization", "69baaf99-d224-4d29-b8d2-898b77f56d96")
+            header("Bearer-Authorization", token)
 
             url {
                 path("games/search")

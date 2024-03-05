@@ -1,5 +1,6 @@
 package search
 
+import AuthRepository
 import GamesRepository
 import com.adeo.kviewmodel.BaseSharedViewModel
 import kotlinx.coroutines.Job
@@ -14,6 +15,8 @@ class SearchViewModel : BaseSharedViewModel<SearchViewState, SearchAction, Searc
 ) {
 
     private val gamesRepository: GamesRepository = Inject.instance()
+    private val authRepository: AuthRepository = Inject.instance()
+
     private var searchJob: Job? = null
     override fun obtainEvent(viewEvent: SearchEvent) {
         when(viewEvent){
@@ -33,7 +36,8 @@ class SearchViewModel : BaseSharedViewModel<SearchViewState, SearchAction, Searc
             searchJob?.cancel()
             delay(500)
             viewState = try {
-                val gamesResponse = gamesRepository.searchGame(query)
+                val token = authRepository.fetchToken()
+                val gamesResponse = gamesRepository.searchGame(query,token)
                 viewState.copy(games = gamesResponse)
             }catch (e: Exception){
                 viewState.copy(games = emptyList())

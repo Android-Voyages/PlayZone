@@ -2,6 +2,7 @@ plugins {
     id("multiplatform-setup")
     id("android-setup")
     kotlin("plugin.serialization")
+    id("com.squareup.sqldelight")
 }
 
 kotlin {
@@ -47,5 +48,14 @@ kotlin {
                 implementation(DependenciesVersion.SqlDelight.desktop)
             }
         }
+    }
+}
+
+sqldelight {
+    database("Database"){
+        packageName = "com.observer.playzone"
+        schemaOutputDirectory = file("src/commonMain/sqldelight/database/schema")
+        migrationOutputDirectory = file("src/commonMain/sqldelight/database/migrations")
+
     }
 }
