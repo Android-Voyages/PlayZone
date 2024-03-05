@@ -84,26 +84,11 @@ fun LoginView(state: LoginViewState, eventHandler: (LoginEvent) -> Unit) {
         }
 
         Spacer(modifier = Modifier.height(30.dp))
-
-
-	    Button(
-		    modifier = Modifier
-			    .fillMaxWidth()
-			    .height(56.dp),
-            colors = ButtonDefaults.buttonColors(
-                backgroundColor = Theme.colors.primaryAction
-            ),
-            enabled = !state.isSending,
-            shape = RoundedCornerShape(10.dp),
-            onClick = {
-                eventHandler.invoke(LoginEvent.LoginClicked)
-            }) {
-            Text(
-                text = "Login now",
-                color = Theme.colors.primaryTextColor,
-                fontSize = 16.sp,
-                fontWeight = FontWeight.Bold
-            )
-        }
+		ActionButton(
+			hint = "Login now",
+			enabled = !state.isSending
+		){
+			eventHandler.invoke(LoginEvent.LoginClicked)
+		}
     }
 }

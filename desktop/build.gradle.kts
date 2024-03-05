@@ -24,7 +24,9 @@ kotlin {
 				implementation(project(":common:auth:compose"))
 				implementation(project(":common:umbrella-ios"))
 				implementation(project(":common:umbrella-compose"))
-
+				implementation(project(":common:games:api"))
+				implementation(project(":common:main:compose"))
+				implementation(project(":common:main:presentation"))
 				implementation(DependenciesVersion.Other.Navigation.core)
 				implementation(DependenciesVersion.Other.Navigation.compose)
 

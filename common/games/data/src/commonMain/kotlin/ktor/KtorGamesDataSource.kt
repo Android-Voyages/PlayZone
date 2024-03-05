@@ -27,4 +27,15 @@ class KtorGamesDataSource(private val httpClient: HttpClient) {
             }
         }.body()
     }
+
+    suspend fun createGame(token: String,info : CreateGameInfo){
+        return httpClient.post {
+            header("Bearer-Authorization",token)
+
+            url {
+                path("games/create")
+                setBody(info)
+            }
+        }.body()
+    }
 }

@@ -1,5 +1,6 @@
 package navigation
 
+import CreateGameScreen
 import SplashScreen
 import adminFlow
 import androidx.compose.material.Text
@@ -29,8 +30,14 @@ fun RootComposeBuilder.generateGraph(source : NavigationSource) {
 
         NavigationSource.Desktop -> {
             adminFlow()
+
+            screen(name = NavigationTree.DesktopAdmin.CreateGame.name) {
+                CreateGameScreen()
+            }
         }
 
-        NavigationSource.Ios -> {}
+        NavigationSource.Ios -> {
+
+        }
     }
 }
