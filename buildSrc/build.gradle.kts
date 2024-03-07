@@ -1,3 +1,5 @@
+import org.jetbrains.kotlin.gradle.plugin.mpp.pm20.util.libsDirectory
+
 plugins {
     `kotlin-dsl`
 }
@@ -10,11 +12,9 @@ repositories {
 }
 
 dependencies {
-    implementation(DependenciesVersion.Kotlin.gradlePlugin)
-    implementation(DependenciesVersion.Compose.gradlePlugin)
-    implementation(DependenciesVersion.Android.gradlePlugin)
-    implementation(DependenciesVersion.Kotlin.Serialization.gradlePlugin)
-    implementation(DependenciesVersion.SqlDelight.gradlePlugin)
+    implementation(libs.plugin.android)
+    implementation(libs.plugin.kotlin)
+    implementation(libs.plugin.compose)
 }
 
 kotlin {
