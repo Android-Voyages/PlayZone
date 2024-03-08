@@ -1,21 +1,23 @@
 plugins{
     id("multiplatform-setup")
-    id("android-setup")
-    kotlin("plugin.serialization")
+    id(libs.plugins.serialization.get().pluginId)
 }
 kotlin {
     sourceSets {
         commonMain {
             dependencies {
                 implementation(project(":common:core"))
-                implementation(DependenciesVersion.Kotlin.Serialization.serialization)
+                implementation(libs.kotlinx.serialization.core)
             }
         }
         androidMain {
             dependencies {
-
-                implementation(DependenciesVersion.Android.Compose.ui)
+                implementation(libs.compose.ui)
             }
         }
     }
+}
+
+android{
+    namespace = "com.observer.playzone"
 }

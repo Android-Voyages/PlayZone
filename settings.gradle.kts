@@ -18,7 +18,7 @@ dependencyResolutionManagement {
 
 rootProject.name = "PlayZone"
 //android
-include(":androidApp")
+include(":composeApp")
 
 //desktop
 include(":desktop")

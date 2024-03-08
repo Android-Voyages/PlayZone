@@ -1,14 +1,15 @@
 plugins{
-    id("multiplatform-compose-setup")
-    id("android-setup")
-    kotlin("plugin.serialization")
+    id("multiplatform-setup")
+    id(libs.plugins.serialization.get().pluginId)
 }
 
 kotlin{
     sourceSets{
         commonMain.dependencies {
-            api(DependenciesVersion.Kotlin.Serialization.serialization)
-
+            api(libs.kotlinx.serialization.core)
         }
     }
+}
+android{
+    namespace = "com.observer.playzone"
 }

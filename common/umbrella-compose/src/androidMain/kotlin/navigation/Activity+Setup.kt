@@ -22,7 +22,7 @@ fun ComponentActivity.setupThemedNavigation() {
     setContent {
         AppTheme {
             val backgroundColor = Theme.colors.primaryBackground
-            val displayType = DisplayType.FullScreen
+            val displayType = DisplayType.EdgeToEdge
             rootController.backgroundColor = backgroundColor
             val modalSheetConfiguration = DefaultModalConfiguration(backgroundColor,displayType )
 

@@ -1,6 +1,8 @@
 plugins{
     id("multiplatform-setup")
-    id("android-setup")
-    kotlin("plugin.serialization")
+    id(libs.plugins.serialization.get().pluginId)
 }
 
+android{
+    namespace = "com.observer.playzone"
+}

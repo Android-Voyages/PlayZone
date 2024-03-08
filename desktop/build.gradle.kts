@@ -27,9 +27,8 @@ kotlin {
 				implementation(project(":common:games:api"))
 				implementation(project(":common:main:compose"))
 				implementation(project(":common:main:presentation"))
-				implementation(DependenciesVersion.Other.Navigation.core)
-				implementation(DependenciesVersion.Other.Navigation.compose)
-
+				implementation(libs.odyssey.core)
+				implementation(libs.odyssey.compose)
 			}
 		}
 	}

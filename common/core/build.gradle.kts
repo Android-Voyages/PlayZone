@@ -1,61 +1,49 @@
 plugins {
     id("multiplatform-setup")
-    id("android-setup")
-    kotlin("plugin.serialization")
-    id("com.squareup.sqldelight")
+    id(libs.plugins.serialization.get().pluginId)
 }
 
 kotlin {
     sourceSets {
         commonMain {
             dependencies {
-                api(DependenciesVersion.Kotlin.Serialization.serialization)
-                api(DependenciesVersion.Kotlin.Coroutines.core)
-                api(DependenciesVersion.Ktor.core)
-                implementation(DependenciesVersion.Ktor.json)
-                implementation(DependenciesVersion.Ktor.serialization)
-                implementation(DependenciesVersion.Ktor.negotiation)
-                implementation(DependenciesVersion.Ktor.kotlin_json)
-                implementation(DependenciesVersion.Ktor.logging)
-
-                implementation(DependenciesVersion.Settings.core)
-                implementation(DependenciesVersion.Settings.noargs)
-
-                api(DependenciesVersion.Kodein.core)
-
-                api(DependenciesVersion.SqlDelight.core)
+                api(libs.kotlinx.serialization.core)
+                api(libs.kotlinx.coroutines)
+                api(libs.ktor.client.core)
+                api(libs.kodein.di)
+               // api(libs.sqldelight.sqlite.driver)
+                implementation(libs.ktor.client.json)
+                implementation(libs.ktor.client.serialization)
+                implementation(libs.ktor.client.negotiation)
+                implementation(libs.ktor.client.logging)
+                implementation(libs.multiplatform.settings.core)
+                implementation(libs.multiplatform.settings.no.arg)
             }
         }
 
         androidMain {
             dependencies {
-                implementation(DependenciesVersion.Ktor.android)
-                implementation(DependenciesVersion.SqlDelight.android)
-                implementation(DependenciesVersion.Android.Compose.ui)
+                implementation(libs.ktor.client.android)
+               // implementation(libs.sqldelight.android.driver)
+                implementation(libs.compose.ui)
             }
         }
 
         iosMain {
             dependencies {
-                implementation(DependenciesVersion.Ktor.ios)
-                implementation(DependenciesVersion.SqlDelight.ios)
+                implementation(libs.ktor.client.ios)
+             //   implementation(libs.sqldelight.native.driver)
             }
         }
 
         desktopMain {
             dependencies {
-                implementation(DependenciesVersion.Ktor.okhttp)
-                implementation(DependenciesVersion.SqlDelight.desktop)
+                implementation(libs.ktor.http)
+              //  implementation(libs.sqldelight.coroutines.extensions)
             }
         }
     }
 }
-
-sqldelight {
-    database("Database"){
-        packageName = "com.observer.playzone"
-        schemaOutputDirectory = file("src/commonMain/sqldelight/database/schema")
-        migrationOutputDirectory = file("src/commonMain/sqldelight/database/migrations")
-
-    }
+android{
+    namespace = "com.observer.playzone"
 }

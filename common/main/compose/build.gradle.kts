@@ -1,6 +1,5 @@
 plugins{
-    id("multiplatform-compose-setup")
-    id("android-setup")
+    id("multiplatform-setup")
 }
 
 
@@ -12,20 +11,23 @@ kotlin{
             implementation(project(":common:main:presentation"))
             implementation(project(":common:core-compose"))
             implementation(project(":common:core-utils"))
-            implementation(DependenciesVersion.Other.ViewModel.core)
-            implementation(DependenciesVersion.Other.ViewModel.compose)
-            implementation(DependenciesVersion.Other.ViewModel.odyssey)
-            implementation(DependenciesVersion.Other.Navigation.core)
-            implementation(DependenciesVersion.Other.Navigation.compose)
+            implementation(libs.kviewmodel.core)
+            implementation(libs.kviewmodel.compose)
+            implementation(libs.kviewmodel.odyssey)
+            implementation(libs.odyssey.core)
+            implementation(libs.odyssey.compose)
         }
         androidMain.dependencies{
-            implementation(DependenciesVersion.Android.Compose.ui)
-            implementation(DependenciesVersion.Android.Compose.ui)
-            implementation(DependenciesVersion.Android.Compose.material)
-            implementation(DependenciesVersion.Android.Compose.icons)
-            implementation(DependenciesVersion.Android.Compose.tooling)
-	        implementation(DependenciesVersion.Image.Coil.compose)
-	        implementation(DependenciesVersion.Image.Coil.core)
+            implementation(libs.compose.ui)
+            implementation(libs.compose.material)
+            implementation(libs.compose.icons)
+            implementation(libs.compose.tooling)
+            implementation(libs.compose.tooling)
+            implementation(libs.coil.core)
+            implementation(libs.coil.compose)
         }
     }
+}
+android{
+    namespace = "com.observer.playzone"
 }

@@ -1,6 +1,5 @@
 plugins{
-    id("multiplatform-compose-setup")
-    id("android-setup")
+    id("multiplatform-setup")
 }
 
 
@@ -11,7 +10,10 @@ kotlin{
             api(project(":common:games:api"))
             api(project(":common:main:api"))
             api(project(":common:core"))
-            implementation(DependenciesVersion.Other.ViewModel.core)
+            implementation(libs.kviewmodel.core)
         }
     }
+}
+android{
+    namespace = "com.observer.playzone"
 }

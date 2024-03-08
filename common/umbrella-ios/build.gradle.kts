@@ -1,6 +1,5 @@
 plugins{
     id("multiplatform-setup")
-    id("android-setup")
     kotlin("native.cocoapods")
 }
 
@@ -52,4 +51,7 @@ kotlin {
             }
         }
     }
+}
+android{
+    namespace = "com.observer.playzone"
 }

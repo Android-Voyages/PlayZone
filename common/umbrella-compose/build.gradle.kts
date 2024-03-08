@@ -1,9 +1,5 @@
 plugins {
-    id("multiplatform-compose-setup")
-    id("android-setup")
-}
-dependencies {
-	implementation(project(":common:core"))
+    id("multiplatform-setup")
 }
 
 kotlin {
@@ -18,25 +14,24 @@ kotlin {
                 implementation(project(":common:games:data"))
                 implementation(project(":common:tournaments:data"))
                 implementation(project(":common:main:compose"))
-
-                implementation(DependenciesVersion.Other.ViewModel.core)
-                implementation(DependenciesVersion.Other.ViewModel.compose)
-                implementation(DependenciesVersion.Other.ViewModel.odyssey)
-
-                implementation(DependenciesVersion.Other.Navigation.compose)
-                implementation(DependenciesVersion.Other.Navigation.core)
+                implementation(libs.odyssey.core)
+                implementation(libs.odyssey.compose)
+                implementation(libs.kviewmodel.compose)
+                implementation(libs.kviewmodel.odyssey)
+                implementation(libs.kviewmodel.core)
             }
         }
 
         androidMain {
             dependencies {
                 implementation(project(":common:core-compose"))
-
-
-                implementation(DependenciesVersion.Android.composeActivity)
-                implementation(DependenciesVersion.Android.Compose.ui)
+                implementation(libs.compose.ui)
+                implementation(libs.androidx.activity.compose)
 
             }
         }
     }
+}
+android{
+    namespace = "com.observer.playzone"
 }
