@@ -1,4 +1,9 @@
+import app.cash.sqldelight.db.QueryResult
+import app.cash.sqldelight.db.SqlDriver
+import app.cash.sqldelight.db.SqlSchema
 
-//expect class DbDriverFactory(platformConfiguration: PlatformConfiguration){
-//    fun createDriver(schema: SqlDriver.Schema,name:String): SqlDriver
-//}
+expect class DbDriverFactory(platformConfiguration: PlatformConfiguration){
+   suspend fun provideDbDriver(
+	   schema : SqlSchema<QueryResult.AsyncValue<Unit>>
+   ):SqlDriver
+}

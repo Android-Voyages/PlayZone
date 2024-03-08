@@ -1,8 +1,13 @@
 plugins{
     id("multiplatform-setup")
+    id(libs.plugins.libres.get().pluginId)
 }
 
-
+libres {
+    generatedClassName = "MainRes"
+    generateNamedArguments = true
+    baseLocaleLanguageCode = "en"
+}
 kotlin{
 
     sourceSets{
@@ -16,6 +21,7 @@ kotlin{
             implementation(libs.kviewmodel.odyssey)
             implementation(libs.odyssey.core)
             implementation(libs.odyssey.compose)
+            implementation(libs.libres.compose)
         }
         androidMain.dependencies{
             implementation(libs.compose.ui)
