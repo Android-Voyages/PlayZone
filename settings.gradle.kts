@@ -1,3 +1,5 @@
+import org.gradle.internal.impldep.junit.runner.Version.id
+
 pluginManagement {
     repositories {
         google()
@@ -5,6 +7,10 @@ pluginManagement {
         mavenCentral()
         maven("https://maven.pkg.jetbrains.space/public/p/compose/dev")
     }
+}
+
+plugins {
+    id("org.gradle.toolchains.foojay-resolver-convention") version "0.4.0"
 }
 
 dependencyResolutionManagement {

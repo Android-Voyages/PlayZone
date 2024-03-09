@@ -47,6 +47,7 @@ kotlin {
         desktopMain {
             dependencies {
                 implementation(libs.ktor.http)
+                implementation(libs.ktor.client.okhttp)
                 implementation(libs.sqldelight.sqlite.driver)
             }
         }

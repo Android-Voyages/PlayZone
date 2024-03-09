@@ -1,3 +1,4 @@
+import org.jetbrains.compose.desktop.application.dsl.TargetFormat
 import org.jetbrains.kotlin.js.translate.context.Namer.kotlin
 
 plugins {
@@ -10,9 +11,11 @@ plugins {
 kotlin {
 	androidTarget()
 	jvmToolchain(17)
+	jvm()
 	sourceSets {
 		commonMain.dependencies {
 			implementation(project(":common:core"))
+			implementation(project(":common:core-compose"))
 			implementation(project(":common:games:api"))
 			implementation(project(":common:games:data"))
 			implementation(project(":common:umbrella-compose"))
@@ -24,6 +27,9 @@ kotlin {
 			implementation(libs.odyssey.core)
 		}
 
+		jvmMain.dependencies {
+			implementation(compose.desktop.currentOs)
+		}
 		androidMain.dependencies {
 			implementation(libs.androidx.activity.compose)
 			implementation(libs.androidx.appcompat)
@@ -54,6 +60,17 @@ android {
 	buildTypes {
 		getByName("release") {
 			isMinifyEnabled = false
+		}
+	}
+}
+compose.desktop {
+	application {
+		mainClass = "Main_desktopKt"
+
+		nativeDistributions{
+			targetFormats(TargetFormat.Dmg,TargetFormat.Exe,TargetFormat.Deb)
+			packageName = "com.observer.playzone"
+			packageVersion = "1.0.0"
 		}
 	}
 }
