@@ -1,15 +1,20 @@
-import UIKit
+import SwiftUI
 import SharedSDK
 
-@UIApplicationMain
-class AppDelegate: UIResponder, UIApplicationDelegate {
-    var window: UIWindow?
+@main
+struct iOSApp: App {
+	init(){
+	    PlatformSdk().doInit(configuration: PlatformConfiguration())
+	}
 
-    func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
-        window = UIWindow(frame: UIScreen.main.bounds)
-        let mainViewController = Main_iosKt.MainViewController()
-        window?.rootViewController = mainViewController
-        window?.makeKeyAndVisible()
-        return true
+	var body : some Scene {
+        WindowGroup {
+           // ContentView()
+           ZStack{
+           Color.init(hex: 0xFF050B18)
+                .ignoresSafeArea()
+               MainComposeView()
+           }
+        }
     }
 }
