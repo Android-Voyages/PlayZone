@@ -20,6 +20,7 @@ import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
+import com.observer.playzone.AuthRes
 import login.models.LoginEvent
 import login.models.LoginViewState
 import theme.Theme
@@ -77,7 +78,7 @@ fun LoginView(state: LoginViewState, eventHandler: (LoginEvent) -> Unit) {
             Spacer(modifier = Modifier.weight(1f))
             Text(
                 modifier = Modifier.clickable { eventHandler.invoke(LoginEvent.ForgotClicked) },
-                text = "Forgot Password",
+                text = AuthRes.string.auth_forgot_password,
                 color = Theme.colors.primaryAction,
                 fontSize = 12.sp,
             )

@@ -5,6 +5,7 @@ import androidx.compose.runtime.Composable
 import androidx.compose.runtime.LaunchedEffect
 import com.adeo.kviewmodel.compose.observeAsState
 import com.adeo.kviewmodel.odyssey.StoredViewModel
+import desktop.LocalAppSettings
 import login.models.LoginAction
 import navigation.NavigationTree
 import ru.alexgladkov.odyssey.compose.extensions.present
@@ -25,7 +26,6 @@ internal fun LoginScreen() {
 
 
 	    val currentAction = viewAction.value
-
         LaunchedEffect(viewAction.value) {
             when (currentAction) {
                 is LoginAction.OpenMainFlow ->{
