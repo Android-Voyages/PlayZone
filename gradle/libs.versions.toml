@@ -97,3 +97,4 @@ serialization = { id = "org.jetbrains.kotlin.plugin.serialization", version.ref 
 compose = { id = "org.jetbrains.compose", version.ref = "plugin-compose" }
 sqldelight = { id = "app.cash.sqldelight", version.ref = "sqldelight" }
 libres = { id = "io.github.skeptick.libres", version.ref = "libres" }
+cocoapods = { id = "org.jetbrains.kotlin.native.cocoapods"}

@@ -10,6 +10,7 @@ import ru.alexgladkov.odyssey.compose.setup.OdysseyConfiguration
 import ru.alexgladkov.odyssey.compose.setup.setNavigationContent
 import theme.AppTheme
 import theme.Theme
+import javax.swing.JFrame
 
 fun main() = application{
 	PlatformSDK.init(configuration = PlatformConfiguration())
