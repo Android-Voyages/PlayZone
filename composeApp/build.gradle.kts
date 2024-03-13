@@ -33,14 +33,24 @@ kotlin {
 	androidTarget()
 	jvmToolchain(17)
 	jvm()
+	js{
+		moduleName = "composeApp"
+		browser{
+			commonWebpackConfig{
+				outputFileName = "composeApp.js"
+			}
+		}
+		binaries.executable()
+	}
 	listOf(
 		iosX64(),
 		iosArm64(),
 		iosSimulatorArm64()
 	).forEach{
 		it.binaries.framework{
-			baseName = "SharedSDK"
+			baseName = "ComposeApp"
 			isStatic = false
+			linkerOpts.add("-lsqlite3")
 		}
 	}
 	targets.withType<KotlinNativeTarget>{
@@ -52,19 +62,36 @@ kotlin {
 		commonMain.dependencies {
 			implementation(project(":common:core"))
 			implementation(project(":common:core-compose"))
+			implementation(project(":common:core-utils"))
+			implementation(project(":common:auth:data"))
+			implementation(project(":common:auth:compose"))
 			implementation(project(":common:games:api"))
 			implementation(project(":common:games:data"))
-			implementation(project(":common:umbrella-compose"))
+			implementation(project(":common:tournaments:data"))
+			implementation(project(":common:main:compose"))
 			implementation(compose.runtime)
 			implementation(compose.ui)
 			implementation(compose.foundation)
+			implementation(compose.material)
 
 			implementation(libs.odyssey.compose)
 			implementation(libs.odyssey.core)
+			implementation(libs.kviewmodel.core)
+			implementation(libs.kviewmodel.compose)
+			implementation(libs.kviewmodel.odyssey)
+
 		}
 
 		jvmMain.dependencies {
 			implementation(compose.desktop.currentOs)
+		}
+		jsMain.dependencies {
+			implementation(compose.html.core)
+			implementation(libs.sqldelight.js.driver)
+			implementation(npm("sql.js", "1.6.2"))
+			implementation(devNpm("copy-webpack-plugin", "9.1.0"))
+			implementation(npm("@cashapp/sqldelight-sqljs-worker", "2.0.1"))
+
 		}
 		androidMain.dependencies {
 			implementation(libs.androidx.activity.compose)
@@ -119,5 +146,10 @@ compose.desktop {
 			packageName = "com.observer.playzone"
 			packageVersion = "1.0.0"
 		}
+	}
+}
+compose.experimental{
+	web.application {
+
 	}
 }

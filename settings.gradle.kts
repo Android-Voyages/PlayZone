@@ -55,5 +55,4 @@ include(":common:core")
 include(":common:core-compose")
 include(":common:core-utils")
 
-//Umbrella
-include(":common:umbrella-compose")
+

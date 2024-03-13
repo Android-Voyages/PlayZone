@@ -16,15 +16,15 @@ object PlatformSDK {
             }
         )
 
-        Inject.createDependencies(
-            DI {
-                importAll(
-                    umbrellaModule,
-                    coreModule,
-                    gamesModule,
-                    authModule
-                )
-            }.direct
-        )
+	    Inject.createDependencies(
+		    DI {
+			    importAll(
+				    umbrellaModule,
+				    coreModule,
+				    gamesModule,
+				    authModule
+			    )
+		    }.direct
+	    )
     }
 }
